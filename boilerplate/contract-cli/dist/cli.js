@@ -38,14 +38,14 @@ const deployOrJoin = async (providers, rli) => {
         }
         else {
             logger.info('🚀 Auto-deploying new contract...');
-            return await api.deploy(providers, { secretKey: new Uint8Array(32).fill(1) });
+            return await api.deploy(providers, { itemPrice: new Number(1) });
         }
     }
     while (true) {
         const choice = await rli.question(DEPLOY_OR_JOIN_QUESTION);
         switch (choice) {
             case '1':
-                return await api.deploy(providers, { secretKey: new Uint8Array(32).fill(1) });
+                return await api.deploy(providers, { itemPrice: new Number(1) });
             case '2':
                 return await join(providers, rli);
             case '3':

@@ -17,21 +17,14 @@ const [folder] = fs.readdirSync(managedPath).filter(f =>
 const { Ledger } = await import(`./managed/${folder}/contract/index.cjs`);
 
 
-/*export type CounterPrivateState = {
-  readonly secretKey: Uint8Array; 
-};
-
-export const createCounterPrivateState = (secretKey: Uint8Array) => ({
-  secretKey,
-});*/
-
 export const witnesses = {
-  /*secretKey: ({ privateState }: WitnessContext<typeof Ledger, CounterPrivateState>): [CounterPrivateState, Uint8Array] => {
-    return [privateState, privateState.secretKey];
-  },*/
+  secretPrice: ({ privateState }: WitnessContext<typeof Ledger, AuctionPrivateState>): [AuctionPrivateState, Number] => {
+    return [privateState, privateState.itemPrice
+    ];
+  },
 };
 
-export type ActivePrivateState = {
+export type AuctionPrivateState = {
   readonly itemPrice: Number;
 };
 

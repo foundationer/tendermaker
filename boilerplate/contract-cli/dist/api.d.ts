@@ -5,7 +5,7 @@ import { type Resource } from '@midnight-ntwrk/wallet';
 import { type Wallet } from '@midnight-ntwrk/wallet-api';
 import { type Logger } from 'pino';
 import * as fs from 'node:fs';
-import { type CounterContract, type ActivePrivateState, type CounterProviders, type DeployedCounterContract } from './common-types';
+import { type CounterContract, type AuctionPrivateState, type CounterProviders, type DeployedCounterContract } from './common-types';
 import { type Config } from './config';
 /**
  * Create an opaque string value from a plain string
@@ -15,7 +15,7 @@ export declare const createOpaqueString: (value: string) => any;
 export declare const getCounterLedgerState: (providers: CounterProviders, contractAddress: ContractAddress) => Promise<bigint | null>;
 export declare const counterContractInstance: CounterContract;
 export declare const joinContract: (providers: CounterProviders, contractAddress: string) => Promise<DeployedCounterContract>;
-export declare const deploy: (providers: CounterProviders, privateState: ActivePrivateState) => Promise<DeployedCounterContract>;
+export declare const deploy: (providers: CounterProviders, privateState: AuctionPrivateState) => Promise<DeployedCounterContract>;
 export declare const displayCounterValue: (providers: CounterProviders, counterContract: DeployedCounterContract) => Promise<{
     counterValue: bigint | null;
     contractAddress: string;

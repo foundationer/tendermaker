@@ -28,7 +28,7 @@ import * as fs from 'node:fs';
 import { ContractAnalyzer } from './contract-analyzer.js';
 import {
   type CounterContract,
-  type ActivePrivateState,
+  type AuctionPrivateState,
   type CounterPrivateStateId,
   type CounterProviders,
   type DeployedCounterContract,
@@ -98,7 +98,7 @@ export const joinContract = async (
 
 export const deploy = async (
   providers: CounterProviders,
-  privateState: ActivePrivateState,
+  privateState: AuctionPrivateState,
 ): Promise<DeployedCounterContract> => {
   // Get dynamic contract name
   const analyzer = new ContractAnalyzer();
