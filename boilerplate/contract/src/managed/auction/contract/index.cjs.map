@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "index.cjs",
+  "sourceRoot": "../../../",
+  "sources": ["auction.compact"],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAUA;;;;;;;;;;MAQA,AAAA,KAEC;;;;;;;;;;;;;;;;;;;;;;OAAA;;;GANA;EAJD;;;;;UAAY,YAA4B;UAAE,YAAoB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAJ9D;;;;;;;;;uDAA2B;IAC3B;;;;;;;;;uDAAyC;IACzC;;;;;;;;;uDAAkC;IAG9B;;;;;;;;;uDAAK;IACL;;;;;;;yGAAoB,YAAU;;uDAAtB;IACR;;;;;;;yGAAqB,YAAU;;uDAAtB;;;;;;;GACZ;EAID,AAAA,QAEC;oDADU;;;;;;;;;;;uGAAK;;;;;GACf;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAdD;qCAAA;;;;;;;;;;;wFAA2B;KAAA;IAC3B;qCAAA;;;;;;;;;;;wFAAyC;KAAA;IACzC;qCAAA;;;;;;;;;;;wFAAkC;KAAA;;;;;;;;;;;;;;"
+}

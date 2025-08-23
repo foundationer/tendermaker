@@ -1,0 +1,21 @@
+pragma language_version >= 0.16;
+
+import CompactStandardLibrary;
+
+export enum STATE { open, closed }
+
+export ledger state: STATE;
+export ledger itemName: Opaque<"string">;
+export ledger basePrice: Uint<32>;
+
+constructor(anItemName: Opaque<"string">, aBasePrice: Uint<32>) {
+    state = STATE.open;
+    itemName = disclose(anItemName);
+    basePrice = disclose(aBasePrice);
+}
+
+//witness localSecretKey(): Bytes<32>;
+
+export circuit offer(): [] {
+    assert(state == STATE.open, "Attempted to offer to a closed auction");
+}
