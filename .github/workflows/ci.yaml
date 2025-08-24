@@ -43,16 +43,11 @@ jobs:
           compact compile --version
 
       - name: Compile and test contract
-        working-directory: contract
-        run: |
-          npm run dev
-
-      - name: api
-        working-directory: api
+        working-directory: boilerplate/contract
         run: |
           npm run dev
 
       - name: Compile contract-cli
-        working-directory: contract-cli
+        working-directory: boilerplate/contract-cli
         run: |
           npm run dev
