@@ -5,18 +5,18 @@ import { type Resource } from '@midnight-ntwrk/wallet';
 import { type Wallet } from '@midnight-ntwrk/wallet-api';
 import { type Logger } from 'pino';
 import * as fs from 'node:fs';
-import { type CounterContract, type AuctionPrivateState, type CounterProviders, type DeployedCounterContract } from './common-types';
+import { type AuctionContract, type AuctionPrivateState, type AuctionProviders, type DeployedCounterContract } from './common-types';
 import { type Config } from './config';
 /**
  * Create an opaque string value from a plain string
  * This is needed for Opaque<"string"> parameters in Midnight contracts
  */
 export declare const createOpaqueString: (value: string) => any;
-export declare const getCounterLedgerState: (providers: CounterProviders, contractAddress: ContractAddress) => Promise<bigint | null>;
-export declare const counterContractInstance: CounterContract;
-export declare const joinContract: (providers: CounterProviders, contractAddress: string) => Promise<DeployedCounterContract>;
-export declare const deploy: (providers: CounterProviders, privateState: AuctionPrivateState) => Promise<DeployedCounterContract>;
-export declare const displayCounterValue: (providers: CounterProviders, counterContract: DeployedCounterContract) => Promise<{
+export declare const getCounterLedgerState: (providers: AuctionProviders, contractAddress: ContractAddress) => Promise<bigint | null>;
+export declare const auctionContractInstance: AuctionContract;
+export declare const joinContract: (providers: AuctionProviders, contractAddress: string) => Promise<DeployedCounterContract>;
+export declare const deploy: (providers: AuctionProviders, privateState: AuctionPrivateState) => Promise<DeployedCounterContract>;
+export declare const displayCounterValue: (providers: AuctionProviders, counterContract: DeployedCounterContract) => Promise<{
     counterValue: bigint | null;
     contractAddress: string;
 }>;
@@ -39,4 +39,4 @@ export declare function setLogger(_logger: Logger): void;
 export declare const streamToString: (stream: fs.ReadStream) => Promise<string>;
 export declare const isAnotherChain: (wallet: Wallet, offset: number) => Promise<boolean>;
 export declare const saveState: (wallet: Wallet, filename: string) => Promise<void>;
-export declare const getItemsSet: (providers: CounterProviders, contractAddress: ContractAddress) => Promise<string[]>;
+export declare const getItemsSet: (providers: AuctionProviders, contractAddress: ContractAddress) => Promise<string[]>;

@@ -27,10 +27,10 @@ import * as fsAsync from 'node:fs/promises';
 import * as fs from 'node:fs';
 import { ContractAnalyzer } from './contract-analyzer.js';
 import {
-  type CounterContract,
+  type AuctionContract,
   type AuctionPrivateState,
-  type CounterPrivateStateId,
-  type CounterProviders,
+  type auctionPrivateStateId,
+  type AuctionProviders,
   type DeployedCounterContract,
 } from './common-types';
 import { type Config, contractConfig } from './config';
@@ -65,7 +65,7 @@ export const createOpaqueString = (value: string): any => {
 globalThis.WebSocket = WebSocket;
 
 export const getCounterLedgerState = async (
-  providers: CounterProviders,
+  providers: AuctionProviders,
   contractAddress: ContractAddress,
 ): Promise<bigint | null> => {
   assertIsContractAddress(contractAddress);
@@ -80,24 +80,24 @@ export const getCounterLedgerState = async (
 
 
 
-export const counterContractInstance: CounterContract = new contractModule.Contract(witnesses);
+export const auctionContractInstance: AuctionContract = new contractModule.Contract(witnesses);
 
 export const joinContract = async (
-  providers: CounterProviders,
+  providers: AuctionProviders,
   contractAddress: string,
 ): Promise<DeployedCounterContract> => {
-  const counterContract = await findDeployedContract(providers, {
+  const auctionContract = await findDeployedContract(providers, {
     contractAddress,
-    contract: counterContractInstance,
+    contract: auctionContractInstance,
     privateStateId: 'auctionPrivateState',
     initialPrivateState: { privateCounter: 0 },
   });
-  logger.info(`Joined contract at address: ${counterContract.deployTxData.public.contractAddress}`);
-  return counterContract;
+  logger.info(`Joined contract at address: ${auctionContract.deployTxData.public.contractAddress}`);
+  return auctionContract;
 };
 
 export const deploy = async (
-  providers: CounterProviders,
+  providers: AuctionProviders,
   privateState: AuctionPrivateState,
 ): Promise<DeployedCounterContract> => {
   // Get dynamic contract name
@@ -105,19 +105,19 @@ export const deploy = async (
   const analysis = await analyzer.analyzeContract();
   
   logger.info(`Deploying ${analysis.contractName.toLowerCase()}...`);
-  const counterContract = await deployContract(providers, {
-    contract: counterContractInstance,
+  const auctionContract = await deployContract(providers, {
+    contract: auctionContractInstance,
     privateStateId: 'auctionPrivateState',
     initialPrivateState: privateState,
   });
-  logger.info(`Deployed contract at address: ${counterContract.deployTxData.public.contractAddress}`);
-  return counterContract;
+  logger.info(`Deployed contract at address: ${auctionContract.deployTxData.public.contractAddress}`);
+  return auctionContract;
 };
 
 
 
 export const displayCounterValue = async (
-  providers: CounterProviders,
+  providers: AuctionProviders,
   counterContract: DeployedCounterContract,
 ): Promise<{ counterValue: bigint | null; contractAddress: string }> => {
   const contractAddress = counterContract.deployTxData.public.contractAddress;
@@ -334,7 +334,7 @@ export const buildFreshWallet = async (config: Config): Promise<Wallet & Resourc
 export const configureProviders = async (wallet: Wallet & Resource, config: Config) => {
   const walletAndMidnightProvider = await createWalletAndMidnightProvider(wallet);
   return {
-    privateStateProvider: levelPrivateStateProvider<typeof CounterPrivateStateId>({
+    privateStateProvider: levelPrivateStateProvider<typeof auctionPrivateStateId>({
       privateStateStoreName: contractConfig.privateStateStoreName,
     }),
     publicDataProvider: indexerPublicDataProvider(config.indexer, config.indexerWS),
@@ -408,7 +408,7 @@ export const saveState = async (wallet: Wallet, filename: string) => {
 };
 
 export const getItemsSet = async (
-  providers: CounterProviders,
+  providers: AuctionProviders,
   contractAddress: ContractAddress,
 ): Promise<string[]> => {
   assertIsContractAddress(contractAddress);

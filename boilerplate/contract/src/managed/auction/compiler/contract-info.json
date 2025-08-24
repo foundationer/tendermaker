@@ -13,6 +13,15 @@
     }
   ],
   "witnesses": [
+    {
+      "name": "secretPrice",
+      "arguments": [
+      ],
+      "result type": {
+        "type-name": "Uint",
+        "maxval": 4294967295
+      }
+    }
   ],
   "contracts": [
   ]

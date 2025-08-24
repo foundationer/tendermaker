@@ -1,5 +1,5 @@
 // Enhanced API wrapper for Auction Contract
-// Generated on: 2025-08-19T01:22:18.331Z
+// Generated on: 2025-08-24T11:07:36.019Z
 // Auto-generated from auction.compact
 
 import { type Logger } from 'pino';
@@ -98,7 +98,7 @@ export class EnhancedContractAPI {
 export const CONTRACT_METADATA = {
   name: 'Auction Contract',
   fileName: 'auction.compact',
-  generatedAt: '2025-08-19T01:22:18.332Z',
+  generatedAt: '2025-08-24T11:07:36.019Z',
   functions: [
   {
     "name": "offer",
@@ -119,6 +119,10 @@ export const CONTRACT_METADATA = {
   {
     "name": "basePrice",
     "type": "Uint<32>"
+  },
+  {
+    "name": "winner",
+    "type": "UserAddress"
   }
 ],
   witnesses: []

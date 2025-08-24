@@ -33,7 +33,7 @@ export class AuctionSimulator {
   circuitContext: CircuitContext<{}>;
 
   constructor(itemPrice: Number, itemName: string, basePrice: bigint) {
-    this.contract = new Contract<{}>({});
+    this.contract = new Contract<{}>({ });
     const {
       currentPrivateState,
       currentContractState,

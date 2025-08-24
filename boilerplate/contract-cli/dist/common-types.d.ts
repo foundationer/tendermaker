@@ -3,8 +3,8 @@ import type { ImpureCircuitId, MidnightProviders } from '@midnight-ntwrk/midnigh
 import type { DeployedContract, FoundContract } from '@midnight-ntwrk/midnight-js-contracts';
 declare const contractModule: any;
 export type { AuctionPrivateState };
-export type CounterCircuits = ImpureCircuitId<typeof contractModule.Contract>;
-export declare const CounterPrivateStateId = "auctionPrivateState";
-export type CounterProviders = MidnightProviders<CounterCircuits, typeof CounterPrivateStateId, AuctionPrivateState>;
-export type CounterContract = typeof contractModule.Contract;
-export type DeployedCounterContract = DeployedContract<CounterContract> | FoundContract<CounterContract>;
+export type AuctionCircuits = ImpureCircuitId<typeof contractModule.Contract>;
+export declare const auctionPrivateStateId = "auctionPrivateState";
+export type AuctionProviders = MidnightProviders<AuctionCircuits, typeof auctionPrivateStateId, AuctionPrivateState>;
+export type AuctionContract = typeof contractModule.Contract;
+export type DeployedCounterContract = DeployedContract<AuctionContract> | FoundContract<AuctionContract>;

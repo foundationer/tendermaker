@@ -17,7 +17,7 @@ import { type Resource } from '@midnight-ntwrk/wallet';
 import { type Wallet } from '@midnight-ntwrk/wallet-api';
 import path from 'path';
 import * as api from '../api';
-import { type CounterProviders } from '../common-types';
+import { type AuctionProviders } from '../common-types';
 import { currentDir } from '../config';
 import { createLogger } from '../logger-utils';
 import { TestEnvironment } from './commons';
@@ -29,7 +29,7 @@ const logger = await createLogger(logDir);
 describe('API', () => {
   let testEnvironment: TestEnvironment;
   let wallet: Wallet & Resource;
-  let providers: CounterProviders;
+  let providers: AuctionProviders;
 
   beforeAll(
     async () => {

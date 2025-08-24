@@ -50,29 +50,29 @@ export const getCounterLedgerState = async (providers, contractAddress) => {
     logger.info(`Ledger state: ${state}`);
     return state;
 };
-export const counterContractInstance = new contractModule.Contract(witnesses);
+export const auctionContractInstance = new contractModule.Contract(witnesses);
 export const joinContract = async (providers, contractAddress) => {
-    const counterContract = await findDeployedContract(providers, {
+    const auctionContract = await findDeployedContract(providers, {
         contractAddress,
-        contract: counterContractInstance,
+        contract: auctionContractInstance,
         privateStateId: 'auctionPrivateState',
         initialPrivateState: { privateCounter: 0 },
     });
-    logger.info(`Joined contract at address: ${counterContract.deployTxData.public.contractAddress}`);
-    return counterContract;
+    logger.info(`Joined contract at address: ${auctionContract.deployTxData.public.contractAddress}`);
+    return auctionContract;
 };
 export const deploy = async (providers, privateState) => {
     // Get dynamic contract name
     const analyzer = new ContractAnalyzer();
     const analysis = await analyzer.analyzeContract();
     logger.info(`Deploying ${analysis.contractName.toLowerCase()}...`);
-    const counterContract = await deployContract(providers, {
-        contract: counterContractInstance,
+    const auctionContract = await deployContract(providers, {
+        contract: auctionContractInstance,
         privateStateId: 'auctionPrivateState',
         initialPrivateState: privateState,
     });
-    logger.info(`Deployed contract at address: ${counterContract.deployTxData.public.contractAddress}`);
-    return counterContract;
+    logger.info(`Deployed contract at address: ${auctionContract.deployTxData.public.contractAddress}`);
+    return auctionContract;
 };
 export const displayCounterValue = async (providers, counterContract) => {
     const contractAddress = counterContract.deployTxData.public.contractAddress;

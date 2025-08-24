@@ -17,7 +17,7 @@ import { type Wallet } from '@midnight-ntwrk/wallet-api';
 import { stdin as input, stdout as output } from 'node:process';
 import { createInterface, type Interface } from 'node:readline/promises';
 import { type Logger } from 'pino';
-import { type CounterProviders, type DeployedCounterContract } from './common-types.js';
+import { type AuctionProviders, type DeployedCounterContract } from './common-types.js';
 import { type Config } from './config.js';
 import { ContractAnalyzer, type ContractAnalysis } from './contract-analyzer.js';
 import { DynamicCLIGenerator, type MenuItem } from './dynamic-cli-generator.js';
@@ -48,7 +48,7 @@ export class SimpleEnhancedCLI {
     }
   }
 
-  async runEnhancedCLI(providers: CounterProviders, rli: Interface): Promise<void> {
+  async runEnhancedCLI(providers: AuctionProviders, rli: Interface): Promise<void> {
     if (!this.contractInfo) {
       throw new Error('Contract info not available');
     }
@@ -95,7 +95,7 @@ export class SimpleEnhancedCLI {
     }
   }
 
-  async deployOrJoin(providers: CounterProviders, rli: Interface): Promise<DeployedCounterContract | null> {
+  async deployOrJoin(providers: AuctionProviders, rli: Interface): Promise<DeployedCounterContract | null> {
     if (!this.contractInfo) {
       throw new Error('Contract info not available');
     }

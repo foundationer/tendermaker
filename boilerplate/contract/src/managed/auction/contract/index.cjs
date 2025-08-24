@@ -21,29 +21,29 @@ var STATE;
 
 const _descriptor_0 = new __compactRuntime.CompactTypeEnum(1, 1);
 
-const _descriptor_1 = new __compactRuntime.CompactTypeUnsignedInteger(18446744073709551615n, 8);
+const _descriptor_1 = new __compactRuntime.CompactTypeUnsignedInteger(4294967295n, 4);
 
-const _descriptor_2 = new __compactRuntime.CompactTypeBoolean();
+const _descriptor_2 = new __compactRuntime.CompactTypeUnsignedInteger(18446744073709551615n, 8);
 
-const _descriptor_3 = new __compactRuntime.CompactTypeBytes(32);
+const _descriptor_3 = new __compactRuntime.CompactTypeBoolean();
+
+const _descriptor_4 = new __compactRuntime.CompactTypeBytes(32);
 
 class _ContractAddress_0 {
   alignment() {
-    return _descriptor_3.alignment();
+    return _descriptor_4.alignment();
   }
   fromValue(value_0) {
     return {
-      bytes: _descriptor_3.fromValue(value_0)
+      bytes: _descriptor_4.fromValue(value_0)
     }
   }
   toValue(value_0) {
-    return _descriptor_3.toValue(value_0.bytes);
+    return _descriptor_4.toValue(value_0.bytes);
   }
 }
 
-const _descriptor_4 = new _ContractAddress_0();
-
-const _descriptor_5 = new __compactRuntime.CompactTypeUnsignedInteger(4294967295n, 4);
+const _descriptor_5 = new _ContractAddress_0();
 
 const _descriptor_6 = new __compactRuntime.CompactTypeOpaqueString();
 
@@ -61,6 +61,9 @@ class Contract {
     if (typeof(witnesses_0) !== 'object') {
       throw new __compactRuntime.CompactError('first (witnesses) argument to Contract constructor is not an object');
     }
+    if (typeof(witnesses_0.secretPrice) !== 'function') {
+      throw new __compactRuntime.CompactError('first (witnesses) argument to Contract constructor does not contain a function-valued field named secretPrice');
+    }
     this.witnesses = witnesses_0;
     this.circuits = {
       offer: (...args_1) => {
@@ -71,7 +74,7 @@ class Contract {
         if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.originalState != undefined && contextOrig_0.transactionContext != undefined)) {
           __compactRuntime.type_error('offer',
                                       'argument 1 (as invoked from Typescript)',
-                                      'auction.compact line 19 char 1',
+                                      'auction.compact line 20 char 1',
                                       'CircuitContext',
                                       contextOrig_0)
         }
@@ -99,6 +102,9 @@ class Contract {
     if (typeof(constructorContext_0) !== 'object') {
       throw new __compactRuntime.CompactError(`Contract state constructor: expected 'constructorContext' in argument 1 (as invoked from Typescript) to be an object`);
     }
+    if (!('initialPrivateState' in constructorContext_0)) {
+      throw new __compactRuntime.CompactError(`Contract state constructor: expected 'initialPrivateState' in argument 1 (as invoked from Typescript)`);
+    }
     if (!('initialZswapLocalState' in constructorContext_0)) {
       throw new __compactRuntime.CompactError(`Contract state constructor: expected 'initialZswapLocalState' in argument 1 (as invoked from Typescript)`);
     }
@@ -108,7 +114,7 @@ class Contract {
     if (!(typeof(aBasePrice_0) === 'bigint' && aBasePrice_0 >= 0n && aBasePrice_0 <= 4294967295n)) {
       __compactRuntime.type_error('Contract state constructor',
                                   'argument 2 (argument 3 as invoked from Typescript)',
-                                  'auction.compact line 11 char 1',
+                                  'auction.compact line 12 char 1',
                                   'Uint<0..4294967295>',
                                   aBasePrice_0)
     }
@@ -158,8 +164,8 @@ class Contract {
                                value: __compactRuntime.StateValue.newCell({ value: _descriptor_7.toValue(2n),
                                                                             alignment: _descriptor_7.alignment() }).encode() } },
                      { push: { storage: true,
-                               value: __compactRuntime.StateValue.newCell({ value: _descriptor_5.toValue(0n),
-                                                                            alignment: _descriptor_5.alignment() }).encode() } },
+                               value: __compactRuntime.StateValue.newCell({ value: _descriptor_1.toValue(0n),
+                                                                            alignment: _descriptor_1.alignment() }).encode() } },
                      { ins: { cached: false, n: 1 } }]);
     Contract._query(context,
                     partialProofData,
@@ -188,8 +194,8 @@ class Contract {
                                value: __compactRuntime.StateValue.newCell({ value: _descriptor_7.toValue(2n),
                                                                             alignment: _descriptor_7.alignment() }).encode() } },
                      { push: { storage: true,
-                               value: __compactRuntime.StateValue.newCell({ value: _descriptor_5.toValue(aBasePrice_0),
-                                                                            alignment: _descriptor_5.alignment() }).encode() } },
+                               value: __compactRuntime.StateValue.newCell({ value: _descriptor_1.toValue(aBasePrice_0),
+                                                                            alignment: _descriptor_1.alignment() }).encode() } },
                      { ins: { cached: false, n: 1 } }]);
     state_0.data = context.transactionContext.state;
     return {
@@ -197,6 +203,23 @@ class Contract {
       currentPrivateState: context.currentPrivateState,
       currentZswapLocalState: context.currentZswapLocalState
     }
+  }
+  _secretPrice_0(context, partialProofData) {
+    const witnessContext_0 = __compactRuntime.witnessContext(ledger(context.transactionContext.state), context.currentPrivateState, context.transactionContext.address);
+    const [nextPrivateState_0, result_0] = this.witnesses.secretPrice(witnessContext_0);
+    context.currentPrivateState = nextPrivateState_0;
+    if (!(typeof(result_0) === 'bigint' && result_0 >= 0n && result_0 <= 4294967295n)) {
+      __compactRuntime.type_error('secretPrice',
+                                  'return value',
+                                  'auction.compact line 18 char 1',
+                                  'Uint<0..4294967295>',
+                                  result_0)
+    }
+    partialProofData.privateTranscriptOutputs.push({
+      value: _descriptor_1.toValue(result_0),
+      alignment: _descriptor_1.alignment()
+    });
+    return result_0;
   }
   _offer_0(context, partialProofData) {
     __compactRuntime.assert(_descriptor_0.fromValue(Contract._query(context,
@@ -214,6 +237,21 @@ class Contract {
                             ===
                             0,
                             'Attempted to offer to a closed auction');
+    __compactRuntime.assert(this._secretPrice_0(context, partialProofData)
+                            >
+                            _descriptor_1.fromValue(Contract._query(context,
+                                                                    partialProofData,
+                                                                    [
+                                                                     { dup: { n: 0 } },
+                                                                     { idx: { cached: false,
+                                                                              pushPath: false,
+                                                                              path: [
+                                                                                     { tag: 'value',
+                                                                                       value: { value: _descriptor_7.toValue(2n),
+                                                                                                alignment: _descriptor_7.alignment() } }] } },
+                                                                     { popeq: { cached: false,
+                                                                                result: undefined } }]).value),
+                            'Offered price below the item base price');
     return [];
   }
   static _query(context, partialProofData, prog) {
@@ -284,7 +322,7 @@ function ledger(state) {
                                                                  result: undefined } }]).value);
     },
     get basePrice() {
-      return _descriptor_5.fromValue(Contract._query(context,
+      return _descriptor_1.fromValue(Contract._query(context,
                                                      partialProofData,
                                                      [
                                                       { dup: { n: 0 } },
@@ -303,7 +341,7 @@ const _emptyContext = {
   originalState: new __compactRuntime.ContractState(),
   transactionContext: new __compactRuntime.QueryContext(new __compactRuntime.ContractState().data, __compactRuntime.dummyContractAddress())
 };
-const _dummyContract = new Contract({ });
+const _dummyContract = new Contract({ secretPrice: (...args) => undefined });
 const pureCircuits = {};
 const contractReferenceLocations = { tag: 'publicLedgerArray', indices: { } };
 exports.Contract = Contract;

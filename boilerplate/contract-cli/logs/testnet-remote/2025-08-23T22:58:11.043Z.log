@@ -1,0 +1,34 @@
+{"level":30,"time":1755989891051,"pid":22601,"hostname":"Legionario","msg":"Analyzed contract: Auction Contract"}
+{"level":30,"time":1755989891054,"pid":22601,"hostname":"Legionario","msg":"Found 1 functions"}
+{"level":30,"time":1755989891055,"pid":22601,"hostname":"Legionario","msg":"🎯 Enhanced CLI initialized with dynamic contract analysis"}
+{"level":30,"time":1755989891056,"pid":22601,"hostname":"Legionario","msg":"✅ Using wallet seed from environment variable"}
+{"level":30,"time":1755989891056,"pid":22601,"hostname":"Legionario","msg":"File path for save file not found, building wallet from scratch"}
+{"level":30,"time":1755989891158,"pid":22601,"hostname":"Legionario","msg":"Your wallet seed is: 597fcf5273d854d3ec0198e9379f481ac50cf5a3ddf9891f35578574eb480923"}
+{"level":30,"time":1755989891158,"pid":22601,"hostname":"Legionario","msg":"Your wallet address is: mn_shield-addr_test12056ds9n5sxf5wdw8c3da2lunjfj2n2amfml8cngevv2f7f7cnyqxqpte7rs807yadly4sj7mjlqr73h6xn0vx2wa325xac9rnk2ekaqp5v03k39"}
+{"level":30,"time":1755989891160,"pid":22601,"hostname":"Legionario","msg":"Your wallet balance is: 0"}
+{"level":30,"time":1755989891161,"pid":22601,"hostname":"Legionario","msg":"Waiting to receive tokens..."}
+{"level":30,"time":1755989891178,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989901755,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989913749,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989925748,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989937749,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989949758,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989961752,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989973753,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989985750,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755989997752,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990009755,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990021752,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990033752,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990045769,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990057753,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990069753,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990081756,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990093754,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990105754,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
+{"level":30,"time":1755990116737,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 28462, transactions=1"}
+{"level":30,"time":1755990126762,"pid":22601,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=1"}
+{"level":30,"time":1755990126763,"pid":22601,"hostname":"Legionario","msg":"Your wallet balance is: 1000000"}
+{"level":30,"time":1755990126773,"pid":22601,"hostname":"Legionario","msg":"🚀 Auto-deploying new contract..."}
+{"level":30,"time":1755990126775,"pid":22601,"hostname":"Legionario","msg":"Deploying auction contract..."}
+{"level":50,"time":1755990126780,"pid":22601,"hostname":"Legionario","msg":"CLI error: Contract state constructor: expected 3 arguments (as invoked from Typescript), received 1"}

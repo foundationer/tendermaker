@@ -1,11 +1,11 @@
 import { type Interface } from 'node:readline/promises';
 import { type Logger } from 'pino';
-import { type CounterProviders, type DeployedCounterContract } from './common-types.js';
+import { type AuctionProviders, type DeployedCounterContract } from './common-types.js';
 export interface MenuItem {
     id: string;
     label: string;
     description: string;
-    action: (providers: CounterProviders, contract: DeployedCounterContract, rli: Interface) => Promise<void>;
+    action: (providers: AuctionProviders, contract: DeployedCounterContract, rli: Interface) => Promise<void>;
     isReadOnly: boolean;
 }
 /**

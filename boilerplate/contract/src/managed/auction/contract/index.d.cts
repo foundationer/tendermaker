@@ -3,6 +3,7 @@ import type * as __compactRuntime from '@midnight-ntwrk/compact-runtime';
 export enum STATE { open = 0, closed = 1 }
 
 export type Witnesses<T> = {
+  secretPrice(context: __compactRuntime.WitnessContext<Ledger, T>): [T, bigint];
 }
 
 export type ImpureCircuits<T> = {

@@ -8,5 +8,5 @@ const getContractModule = () => {
     return contracts[contractNames[0]];
 };
 const contractModule = getContractModule();
-export const CounterPrivateStateId = 'auctionPrivateState';
+export const auctionPrivateStateId = 'auctionPrivateState';
 //# sourceMappingURL=common-types.js.map

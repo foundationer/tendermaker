@@ -46,7 +46,7 @@ export declare class EnhancedContractAPI {
 export declare const CONTRACT_METADATA: {
     readonly name: "Auction Contract";
     readonly fileName: "auction.compact";
-    readonly generatedAt: "2025-08-19T01:22:18.332Z";
+    readonly generatedAt: "2025-08-24T11:07:36.019Z";
     readonly functions: readonly [{
         readonly name: "offer";
         readonly parameters: readonly [];
@@ -62,6 +62,9 @@ export declare const CONTRACT_METADATA: {
     }, {
         readonly name: "basePrice";
         readonly type: "Uint<32>";
+    }, {
+        readonly name: "winner";
+        readonly type: "UserAddress";
     }];
     readonly witnesses: readonly [];
 };

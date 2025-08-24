@@ -7,6 +7,7 @@ export enum STATE { open, closed }
 export ledger state: STATE;
 export ledger itemName: Opaque<"string">;
 export ledger basePrice: Uint<32>;
+//export ledger winner: UserAddress;
 
 constructor(anItemName: Opaque<"string">, aBasePrice: Uint<32>) {
     state = STATE.open;
@@ -14,8 +15,9 @@ constructor(anItemName: Opaque<"string">, aBasePrice: Uint<32>) {
     basePrice = disclose(aBasePrice);
 }
 
-//witness localSecretKey(): Bytes<32>;
+witness secretPrice(): Uint<32>;
 
 export circuit offer(): [] {
     assert(state == STATE.open, "Attempted to offer to a closed auction");
+    assert(secretPrice() > basePrice, "Offered price below the item base price");
 }

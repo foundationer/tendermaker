@@ -1,0 +1,10 @@
+{"level":30,"time":1755991604772,"pid":34070,"hostname":"Legionario","msg":"Analyzed contract: Auction Contract"}
+{"level":30,"time":1755991604775,"pid":34070,"hostname":"Legionario","msg":"Found 1 functions"}
+{"level":30,"time":1755991604776,"pid":34070,"hostname":"Legionario","msg":"🎯 Enhanced CLI initialized with dynamic contract analysis"}
+{"level":30,"time":1755991604777,"pid":34070,"hostname":"Legionario","msg":"✅ Using wallet seed from environment variable"}
+{"level":30,"time":1755991604778,"pid":34070,"hostname":"Legionario","msg":"File path for save file not found, building wallet from scratch"}
+{"level":30,"time":1755991604871,"pid":34070,"hostname":"Legionario","msg":"Your wallet seed is: 597fcf5273d854d3ec0198e9379f481ac50cf5a3ddf9891f35578574eb480923"}
+{"level":30,"time":1755991604871,"pid":34070,"hostname":"Legionario","msg":"Your wallet address is: mn_shield-addr_test12056ds9n5sxf5wdw8c3da2lunjfj2n2amfml8cngevv2f7f7cnyqxqpte7rs807yadly4sj7mjlqr73h6xn0vx2wa325xac9rnk2ekaqp5v03k39"}
+{"level":30,"time":1755991604872,"pid":34070,"hostname":"Legionario","msg":"Your wallet balance is: 0"}
+{"level":30,"time":1755991604872,"pid":34070,"hostname":"Legionario","msg":"Waiting to receive tokens..."}
+{"level":30,"time":1755991604879,"pid":34070,"hostname":"Legionario","msg":"Waiting for funds. Backend lag: 0, wallet lag: 0, transactions=0"}
