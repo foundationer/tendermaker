@@ -51,10 +51,3 @@ jobs:
           echo $COMPACT_LOCATION
           export PATH="$COMPACT_LOCATION:$PATH"
           npm run dev
-
-      - name: Compile contract-cli
-        working-directory: boilerplate/contract-cli
-        run: |
-          echo $COMPACT_LOCATION
-          export PATH="$COMPACT_LOCATION:$PATH"
-          npm run dev
