@@ -52,12 +52,7 @@ jobs:
         run: |
           npm run ci
 
-      - name: Compile bboard-cli
-        working-directory: bboard-cli
-        run: |
-          npm run ci
-
-      - name: Compile bboard-ui
-        working-directory: bboard-ui
+      - name: Compile contract-cli
+        working-directory: contract-cli
         run: |
           npm run ci
