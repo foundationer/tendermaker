@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  COMPACT_LOCATION: "/home/runner/.local/bin/.compact/versions/0.25.0/x86_64-unknown-linux-musl"
+  COMPACT_LOCATION: "/home/runner/.compact/versions/0.25.0/x86_64-unknown-linux-musl"
 
 jobs:
   install-and-test:
