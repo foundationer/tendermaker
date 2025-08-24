@@ -45,14 +45,14 @@ jobs:
       - name: Compile and test contract
         working-directory: contract
         run: |
-          npm run ci
+          npm run dev
 
       - name: api
         working-directory: api
         run: |
-          npm run ci
+          npm run dev
 
       - name: Compile contract-cli
         working-directory: contract-cli
         run: |
-          npm run ci
+          npm run dev
