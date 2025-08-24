@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "rm -rf boilerplate/contract/src/managed/* && node boilerplate/scripts/auto-generator.js",
-    "auto-generate-verbose": "node boilerplate/scripts/typescript-auto-generator.js --verbose",
+    "auto-generate-verbose": "node boilerplate/scripts/auto-generator.js --verbose",
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "wallet": "node boilerplate/scripts/generate-key.js",
